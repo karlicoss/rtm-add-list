@@ -1,0 +1,12 @@
+; comments start with ;
+; empty lines are allowed as well
+passport !1
+tickets !1
+hotel bookings !1
+wallet !1
+
+headphones !2
+; razor !2
+; shaving gel !2
+ 
+power bank !3

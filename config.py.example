@@ -1,0 +1,5 @@
+# you can apply for api key and secret here https://www.rememberthemilk.com/services/api/
+# first, leave token None, api will prompt for authorization on first run, afterwards put the token here
+api_key = "some_key"        # The RTM API Key
+secret = "some_secret"      # The RTM API Shared Secret
+token = None
