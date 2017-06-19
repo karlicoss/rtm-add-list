@@ -5,8 +5,7 @@
 3. Usage example `python3 rtm-add-list.py my-awesome-trip <sample-list`
 
 # Prerequisites
-
-* [pyrtm](https://pypi.python.org/pypi/pyrtm/)
+* `pip3 install -r requirements.py`
 
 # Notes
 You're gonna need RTM premium to use API
