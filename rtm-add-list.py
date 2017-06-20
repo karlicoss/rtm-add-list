@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from config import RTM_API_KEY, RTM_API_SECRET, RTM_API_TOKEN
 
-from enhanced_rtm import EnhancedRtm
+from kython.enhanced_rtm import EnhancedRtm
 
 def process(api: EnhancedRtm, super_task_name, subtasks):
     print("Adding as subtasks of " + super_task_name)
