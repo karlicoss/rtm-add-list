@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.6
 from pprint import pprint
 import sys
 
@@ -8,7 +8,7 @@ from rtmapi import Rtm # type: ignore
 
 
 def extract_series(api: Rtm, taskname: str):
-    res = api.rtm.tasks.getList(filter='name:"{}"'.format(taskname))
+    res = api.rtm.tasks.getList(filter=f'name:"{taskname}"')
     tlists = [tl for tl in res.tasks]
     [tlist] = tlists
     # TODO ok, task series is a defined by recurrence pattern..
@@ -19,7 +19,7 @@ def extract_series(api: Rtm, taskname: str):
     notes = [(n.created, n.value) for n in task.notes]
 
     for d, text in sorted(notes):
-        print("{} {}".format(d, text))
+        print(f"{d} {text}")
 
 def main():
     name = sys.argv[1]
