@@ -4,18 +4,10 @@ import sys
 
 from config import RTM_API_KEY, RTM_API_SECRET, RTM_API_TOKEN
 
-from rtmapi import Rtm # type: ignore
+from kython.enhanced_rtm import EnhancedRtm
 
-
-def extract_series(api: Rtm, taskname: str):
-    res = api.rtm.tasks.getList(filter=f'name:"{taskname}"')
-    tlists = [tl for tl in res.tasks]
-    [tlist] = tlists
-    # TODO ok, task series is a defined by recurrence pattern..
-    # TODO deleted?
-
-    task = max(tlist, key = lambda t: t.modified) # just in case
-
+def extract_series(api: EnhancedRtm, taskname: str):
+    task = api.getTaskByName(taskname)
     notes = [(n.created, n.value) for n in task.notes]
 
     for d, text in sorted(notes):
@@ -23,7 +15,7 @@ def extract_series(api: Rtm, taskname: str):
 
 def main():
     name = sys.argv[1]
-    api = Rtm(RTM_API_KEY, RTM_API_SECRET, token=RTM_API_TOKEN)
+    api = EnhancedRtm(RTM_API_KEY, RTM_API_SECRET, token=RTM_API_TOKEN)
     extract_series(api, name)
 
 if __name__ == '__main__':
