@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.6
 from config import RTM_API_KEY, RTM_API_SECRET, RTM_API_TOKEN
 
 from kython.enhanced_rtm import EnhancedRtm
